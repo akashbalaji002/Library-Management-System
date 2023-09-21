@@ -1,0 +1,90 @@
+﻿<Window x:Class="LMS_Project.viewPageBooks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS_Project"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="viewPageBooks" Height="450" Width="800">
+    <Grid Background="Bisque">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="Bisque">
+            <Label
+                
+         Margin="0,30,0,0"
+         VerticalAlignment="Center"
+         HorizontalAlignment="Center"
+         FontSize="20"
+         FontFamily="palatino linotype"
+         Content="Book Details"/>
+        </StackPanel>
+        <Label Content="Books Count :"
+               FontFamily="palatino linotype"
+               HorizontalAlignment="Left"
+               Margin="621,34,0,14"/>
+        <Label Content="..." x:Name="total_books_label"
+               FontFamily="palatino linotype"
+         HorizontalAlignment="Left"
+         Margin="704,34,0,14" Width="38"/>
+        <StackPanel Grid.Row="1" Margin="0,0,0,152">
+
+        <DataGrid Width="800" FontFamily="palatino linotype"
+         Height="195" 
+         x:Name="ViewBooksGrid" SelectionChanged="ViewBooksGrid_SelectionChanged" />
+
+        </StackPanel>
+        <Button Content="VIEW"
+         FontSize="15"
+                Background="DarkSalmon"
+         Margin="553,223,164,83"
+         FontFamily="palatino linotype"
+         x:Name="loadData_OnGrid_btn" 
+         Click="loadData_OnGrid_btn_Click" Grid.Row="1"/>
+        <TextBox
+            HorizontalAlignment="Left"
+            Margin="94,223,0,0" 
+            Grid.Row="1" TextWrapping="Wrap" 
+            Foreground="Gray"  
+            VerticalAlignment="Top"
+            x:Name="search_bookId_textBox"
+            FontFamily="palatino linotype"
+            Width="187" 
+            Height="22"/>
+        <Label 
+            FontFamily="palatino linotype"
+            Content="Book ID :"
+            HorizontalAlignment="Left" 
+            Margin="24,219,0,0" 
+            Grid.Row="1" 
+            VerticalAlignment="Top" 
+            Width="65" Height="26"/>
+        <Button Content="DELETE"
+                FontSize="15"
+                HorizontalAlignment="Left" 
+                Margin="301,223,0,83" Grid.Row="1"
+                Background="DarkSalmon" 
+                x:Name="Bookdel_btn"
+                FontFamily="palatino linotype"
+                Width="83" Click="Bookdel_btn_Click"/>
+        <Button Content="UPDATE"
+            HorizontalAlignment="Left" 
+            Margin="431,223,0,83" Grid.Row="1"
+            Background="DarkSalmon"
+                FontSize="15"
+                FontFamily="palatino linotype"
+            x:Name="Bookdel_btn_Copy"
+            Width="83" Click="UpdateBookDetails_btn_Click"/>
+        <Button Content="Add Book"
+            HorizontalAlignment="Left" 
+            Margin="675,223,0,83" Grid.Row="1"
+            Background="DarkSalmon"
+                FontSize="15"
+            x:Name="exit_btn"
+                FontFamily="palatino linotype"
+            Width="84" Click="add_book_Click" RenderTransformOrigin="-0.167,0.583"/>
+    </Grid>
+</Window>

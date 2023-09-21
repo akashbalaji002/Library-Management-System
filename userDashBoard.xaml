@@ -1,0 +1,45 @@
+﻿<Window x:Class="LMS_Project.userDashBoard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS_Project"
+        mc:Ignorable="d"
+        Title="userDashBoard" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" >
+            <Menu Grid.Row="0" Background="Bisque" Grid.ColumnSpan="2" Height="44">
+                <MenuItem Header="View Books" FontSize="18" FontFamily="palatino linotype" x:Name="viewBooks_btn" Click="viewBooks_btn_Click" AllowDrop="True"/>
+                <MenuItem Header="View My Details" FontSize="18" FontFamily="palatino linotype" x:Name="viewUserDetails_btn" Click="viewUserDetails_btn_Click"/>
+                <MenuItem Header="Update My Details" FontSize="18" FontFamily="palatino linotype" x:Name="updateUserDetails_btn" Click="UpdateDetails_Click"/>
+                <MenuItem Header="Delete" x:Name="DeleteUserDetails_btn" Click="DeleteDetails_Click" FontSize="18" FontFamily="palatino linotype"/>
+                
+                <MenuItem Header="Books History" x:Name="viewBooksHistory" Click="History_click" FontSize="18" FontFamily="palatino linotype"/>
+                <MenuItem Header="About" x:Name="about_btn" Click="about_Click" FontSize="18" FontFamily="palatino linotype"/>
+            </Menu>
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Margin="0,43,0,0" Grid.RowSpan="2">
+            <DataGrid x:Name="viewGridData" Height="50" />
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Search : " FontFamily="verdana" FontSize="20"/>
+                <TextBox x:Name="search_bookTxtBox" Width="200" Background="BurlyWood" TextChanged="search_book_TextChanged" />
+            </StackPanel>
+            
+            <ScrollViewer>
+                <DataGrid x:Name="viewBookData" Height="140" CanUserSortColumns="True"/>
+            </ScrollViewer>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="My Books : " FontFamily="verdana" FontSize="20"/>
+            </StackPanel>
+            <ScrollViewer>
+                <DataGrid  x:Name="bookHistoryDataGrid" Height="130" CanUserSortColumns="True"/>
+            </ScrollViewer>
+        </StackPanel>
+
+    </Grid>
+</Window>

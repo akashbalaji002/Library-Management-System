@@ -1,0 +1,208 @@
+﻿<Window x:Class="LMS_Project.addBooksPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS_Project"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="addBooksPage" Height="450" Width="800">
+    <Window.Background>
+        <SolidColorBrush Color="Bisque"/>
+    </Window.Background>
+    <Window.Resources>
+
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Palatino Linotype"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Background" Value="Honeydew"/>
+        </Style>
+
+        <Style x:Key="LabelStyle" TargetType="{x:Type Label}" >
+            <Setter Property="FontFamily" Value="Palatino linotype"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontWeight" Value="UltraBlack"/>
+            <Setter Property="Foreground" Value="Black"/>
+
+        </Style>
+
+
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" >
+            <Setter Property="Background" Value="Bisque"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="6 3"/>
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="FontStretch" Value="Expanded"/>
+
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="AllowDrop" Value="True"/>
+            <Setter Property="FontFamily" Value="Palatino linotype"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="MaxHeight" Value="35"/>
+            <Setter Property="MaxWidth" Value="300"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="txtBorder"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="15"
+                            MaxHeight="{TemplateBinding MaxHeight}"
+                            MaxWidth="{TemplateBinding MaxWidth}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            SnapsToDevicePixels="True">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                          Focusable="False"
+                                          HorizontalScrollBarVisibility="Hidden"
+                                          VerticalScrollBarVisibility="Hidden"/>
+
+                            </Grid>
+                        </Border>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+
+
+        </Style>
+
+    </Window.Resources>
+    <ScrollViewer>
+        <Grid Margin="0,10,0,-6" Width="759">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="131*"/>
+                <ColumnDefinition Width="269*"/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel 
+    VerticalAlignment="Center"
+                Margin="52,0,-99,0" Height="640" Grid.ColumnSpan="2" Grid.Column="1">
+                <Label Content=" Book Id : " 
+        Style="{StaticResource LabelStyle}" 
+                   Margin="0,0,450,0"
+           />
+                <TextBox
+            TextWrapping="NoWrap" 
+                Style="{DynamicResource TextBoxStyle}" 
+                x:Name="bookId_txtBox" 
+                HorizontalAlignment="Left"
+                Height="37"/>
+                <Label Content=" Book Name : " 
+                    Margin="0,0,400,0"
+       Style="{StaticResource LabelStyle}"
+          />
+                <TextBox
+             x:Name="bookName_txtBox"
+                Tag="ID"
+                  HorizontalAlignment="Left"
+                 Style="{DynamicResource TextBoxStyle}"
+                 TextWrapping="NoWrap" Height="36" Width="303"
+                 Grid.ColumnSpan="2"
+         
+          />
+                <Label Content=" Author Name : " 
+        Style="{StaticResource LabelStyle}"
+                    Margin="0,0,400,0"
+           />
+                <TextBox
+             x:Name="authorName_txtBox"
+             HorizontalAlignment="Left"
+         Style="{DynamicResource TextBoxStyle}"
+         TextWrapping="NoWrap" Height="34" 
+                 Grid.ColumnSpan="2" TextChanged="authorName_txtBox_TextChanged"
+         />
+                <Label Content=" Publisher Name : " 
+          Style="{StaticResource LabelStyle}"
+                    Margin="0,0,380,0"
+            />
+                <TextBox
+                x:Name="bookPub_txtBox"
+                 HorizontalAlignment="Left"
+                 Style="{DynamicResource TextBoxStyle}"
+                 TextWrapping="NoWrap" Height="34"
+                 Grid.ColumnSpan="2"
+         />
+                <Label Content=" Number of Pages : " 
+         Style="{StaticResource LabelStyle}"
+                       Margin="0,0,380,0"
+            />
+                <TextBox
+            x:Name="NoOfPages_txtBox"
+                HorizontalAlignment="Left"
+             Style="{StaticResource TextBoxStyle}" Height="36"  
+              Grid.ColumnSpan="2"
+            />
+                <Label Content=" Book Price : " 
+                   Style="{StaticResource LabelStyle}"
+                    Margin="0,0,420,0"
+                    />
+                <TextBox 
+                x:Name="bookPrice_txtBox"
+       HorizontalAlignment="Left"
+                Style="{DynamicResource TextBoxStyle}"
+                TextWrapping="NoWrap" Height="37"  
+                 Grid.ColumnSpan="2"
+                  />
+
+                <Label Content=" Quantity : " 
+            Style="{StaticResource LabelStyle}"
+             Margin="0,0,420,0"
+             />
+                <TextBox 
+         x:Name="book_qty_txtBox"
+HorizontalAlignment="Left"
+         Style="{DynamicResource TextBoxStyle}"
+         TextWrapping="NoWrap" Height="37"  
+          Grid.ColumnSpan="2"
+           />
+
+                <Label Content=" Published Date : " 
+                    Margin="0,0,390,0"
+                   Style="{StaticResource LabelStyle}"
+                     />
+                <DatePicker   
+              HorizontalAlignment="Left"
+                    x:Name="PublishDate_picker"
+                              Height="32" 
+                              Width="281"/>
+                <Button 
+                    x:Name="bookSave_btn"
+                    Grid.Column="1" Content="Save" 
+                    HorizontalAlignment="Left" 
+                    Margin="0,10,0,0"
+                    Style="{DynamicResource ButtonStyle}"
+                    Height="31" Width="84" Click="Button_Click"/>
+                <Button 
+                    x:Name="cancel_btn"
+                    Grid.Column="1" 
+                    Content="Cancel" 
+                    Style="{StaticResource ButtonStyle}"
+                    HorizontalAlignment="Left"
+                    Margin="0,10,0,0"
+                    VerticalAlignment="Top"
+                    Height="31" Width="84" Click="cancel_btn_Click"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Left" Width="308" Grid.ColumnSpan="2" Margin="-49,0,0,0">
+                <Label 
+                    HorizontalAlignment="Center"
+                       Content="Add Books"
+                       Height="99" 
+                       Width="250"
+                       FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontFamily="Palatino Linotype"/>
+
+            </StackPanel>
+
+
+        </Grid>
+    </ScrollViewer>
+</Window>

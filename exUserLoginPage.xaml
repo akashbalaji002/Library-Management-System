@@ -1,0 +1,151 @@
+﻿<Window x:Class="LMS_Project.exUserLoginPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS_Project"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="exUserLoginPage" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="LabelStyle" TargetType="{x:Type Label}" >
+            <Setter Property="FontFamily" Value="Palatino linotype"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontWeight" Value="UltraBlack"/>
+            <Setter Property="Foreground" Value="Black"/>
+
+        </Style>
+        <Style x:Key="PasswordBoxStyle" TargetType="{x:Type PasswordBox}" >
+            <Setter Property="Background" Value="Bisque"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="6 3"/>
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="FontStretch" Value="Expanded"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="AllowDrop" Value="True"/>
+            <Setter Property="FontFamily" Value="Palatino linotype"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="MaxWidth" Value="300"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border x:Name="txtBorder"
+      Background="{TemplateBinding Background}"
+      CornerRadius="15"
+      MaxHeight="{TemplateBinding MaxHeight}"
+      MaxWidth="{TemplateBinding MaxWidth}"
+      BorderThickness="{TemplateBinding BorderThickness}"
+      BorderBrush="{TemplateBinding BorderBrush}"
+      SnapsToDevicePixels="True">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                    Focusable="False"
+                    HorizontalScrollBarVisibility="Hidden"
+                    VerticalScrollBarVisibility="Hidden"/>
+
+                            </Grid>
+                        </Border>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Palatino Linotype"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Background" Value="Crimson"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" >
+            <Setter Property="Background" Value="Bisque"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="6 3"/>
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="FontStretch" Value="Expanded"/>
+
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="AllowDrop" Value="True"/>
+            <Setter Property="FontFamily" Value="Palatino linotype"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="MaxWidth" Value="300"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="txtBorder"
+                 Background="{TemplateBinding Background}"
+                 CornerRadius="15"
+                 MaxHeight="{TemplateBinding MaxHeight}"
+                 MaxWidth="{TemplateBinding MaxWidth}"
+                 BorderThickness="{TemplateBinding BorderThickness}"
+                 BorderBrush="{TemplateBinding BorderBrush}"
+                 SnapsToDevicePixels="True">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                               Focusable="False"
+                               HorizontalScrollBarVisibility="Hidden"
+                               VerticalScrollBarVisibility="Hidden"/>
+
+                            </Grid>
+                        </Border>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1.7*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
+            <Image Source="images\login.jpg" HorizontalAlignment="Center" Stretch="Fill" Height="211" Width="234"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Label Content="User Id"
+     Style="{StaticResource LabelStyle}"
+           Margin="50,25,0,0"
+      />
+            <TextBox x:Name="LoginUserId_textBox"
+             Style="{StaticResource TextBoxStyle}"
+             Margin="-100,0,0,0" TextChanged="LoginUserId_textBox_TextChanged" />
+            <Label Content="Password"
+             Style="{StaticResource LabelStyle}"
+             Margin="50,10,0,0"
+               />
+            <PasswordBox x:Name="LoginPassword_passBox"
+                 Password=""
+             Style="{StaticResource PasswordBoxStyle}"
+             Margin="-100,0,0,0"/>
+            <Button
+        x:Name="login_btn"
+        Style="{StaticResource ButtonStyle}"
+        Margin=" -100,30,0,0"
+        Content="LOGIN" Click="login_btn_Click"  />
+        </StackPanel>
+    </Grid>
+</Window>

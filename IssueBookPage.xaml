@@ -1,0 +1,145 @@
+﻿<Window x:Class="LMS_Project.IssueBookPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS_Project"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="IssueBookPage" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.RowSpan="2" Background="Bisque">
+            <Label Content="ISSUE BOOK" 
+                   HorizontalAlignment="Center"
+                   FontFamily="palatino linotype"
+                   FontSize="20"/>
+            <Image Source="images/usericon.png" Height="70" Width="100"/>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Margin="20,0,0,0" HorizontalAlignment="Left" FontSize="15" FontFamily="palatino linotype" Content="User ID :" />
+                <TextBox 
+                    x:Name="UserIdTxtBox_toIssueBook"
+                    Width="200" Height="25"
+                    />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Margin="20,0,0,0"  HorizontalAlignment="Left" FontSize="15" FontFamily="palatino linotype" Content="BookID :" />
+                <TextBox  Height="25" x:Name="bookIdTxtBox_ToIssueBook" Width="200"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,10,0,0">
+                <Label Margin="10,0,0,0"  HorizontalAlignment="Left" FontSize="15" FontFamily="palatino linotype" Content="Book Name :" />
+                <TextBox  Height="25" x:Name="bookName_ToIssueBook" Width="200" TextChanged="bookName_ToIssueBook_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label Content="Issuse Date :" FontFamily="palatino linotype" FontSize="15"/>
+                <DatePicker x:Name="issueDate_Picker" Width="100"/>
+            </StackPanel>
+            <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center" Orientation="Horizontal" >
+                <Label FontSize="15" FontFamily="palatino linotype" Content="Return Date :" />
+                <DatePicker Name="returnDate_Picker"  Width="100"/>
+             </StackPanel>
+
+
+            <StackPanel Margin="0,25,0,0" Orientation="Horizontal" Height="63" HorizontalAlignment="Center" >
+                <Button
+                Margin="0,0,10,0" 
+                Content="Show"
+                x:Name="ShowDetails_btn"
+                FontFamily="palatino linotype"
+                FontSize="20"
+                Height="30"
+                Width="100"
+                Background="Salmon" Click="Show_btn_Click"
+                />
+                <Button
+                  Margin="0,0,0,0" 
+                 Content="Issue"
+                 x:Name="IssueBook_btn"
+                 FontFamily="palatino linotype"
+                 FontSize="20"
+                 Height="30"
+                 Width="100"
+                 Background="Salmon" Click="IssueBook_btn_Click"
+                 /> 
+
+            </StackPanel>
+        </StackPanel>
+        <StackPanel  Grid.Column="1" Background="Azure" Margin="0,0,0,260" Grid.RowSpan="2">
+            <Label 
+                  
+                   HorizontalAlignment="Left"
+                   FontSize="20"
+                   FontFamily="palatino linotype" 
+                   Content="User Details :" />
+            <Label 
+                    x:Name="userName_label"
+                    HorizontalAlignment="Left"
+                    FontSize="20"
+                    FontFamily="palatino linotype" 
+                    Content="" />
+            <Label 
+                    x:Name="Address_label"
+                    HorizontalAlignment="Left"
+                    FontSize="20"
+                    FontFamily="palatino linotype" 
+                    Content="" />
+
+            <Label 
+                    x:Name="ph_label"
+                    HorizontalAlignment="Left"
+                    FontSize="20"
+                    FontFamily="palatino linotype" 
+                    Content="" />
+            
+        </StackPanel>
+        <StackPanel Grid.Column="1" Background="#EEA47F" Grid.Row="1">
+            <Label 
+            
+            HorizontalAlignment="Left"
+            FontSize="20"
+            FontFamily="palatino linotype" 
+            Content="Book Details :" />
+            <Label 
+         x:Name="bookName_lbl"
+         HorizontalAlignment="Left"
+         FontSize="20"
+         FontFamily="palatino linotype" 
+         Content="" />
+            <Label 
+                x:Name="authorName_lbl"
+         HorizontalAlignment="Left"
+         FontSize="20"
+         FontFamily="palatino linotype" 
+         Content="" />
+
+            <Label 
+                x:Name="pubName_lbl"
+         HorizontalAlignment="Left"
+         FontSize="20"
+         FontFamily="palatino linotype" 
+         Content="" />
+            <Label 
+               x:Name="bookPrice_lbl"
+        HorizontalAlignment="Left"
+        FontSize="20"
+        FontFamily="palatino linotype" 
+        Content="" />
+            <Label 
+               x:Name="publishDate_lbl"
+        HorizontalAlignment="Left"
+        FontSize="20"
+        FontFamily="palatino linotype" 
+        Content="" />
+            
+        </StackPanel>
+        
+    </Grid>
+</Window>

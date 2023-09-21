@@ -1,0 +1,258 @@
+﻿<Window x:Class="LMS_Project.newUserPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS_Project"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="newUserPage" Height="450" Width="800">
+
+    <Window.Background>
+        <ImageBrush ImageSource="images/lib1.jpg"/>
+    </Window.Background>
+
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Bisque"/>
+            <Setter Property="Foreground" Value="black" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                     BorderBrush="{TemplateBinding BorderBrush}"
+                     BorderThickness="{TemplateBinding BorderThickness}"
+                     CornerRadius="30">
+
+                            <ContentPresenter HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Salmon" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Palatino Linotype"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Background" Value="Honeydew"/>
+        </Style>
+
+        <Style x:Key="LabelStyle" TargetType="{x:Type Label}" >
+            <Setter Property="FontFamily" Value="Palatino linotype"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontWeight" Value="UltraBlack"/>
+            <Setter Property="Foreground" Value="White"/>
+
+        </Style>
+
+
+        <Style x:Key="PasswordBoxStyle" TargetType="{x:Type PasswordBox}" >
+            <Setter Property="Background" Value="Bisque"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="6 3"/>
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="FontStretch" Value="Expanded"/>
+
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="AllowDrop" Value="True"/>
+            <Setter Property="FontFamily" Value="Palatino linotype"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="MaxWidth" Value="300"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border x:Name="txtBorder"
+                     Background="{TemplateBinding Background}"
+                     CornerRadius="15"
+                     MaxHeight="{TemplateBinding MaxHeight}"
+                     MaxWidth="{TemplateBinding MaxWidth}"
+                     BorderThickness="{TemplateBinding BorderThickness}"
+                     BorderBrush="{TemplateBinding BorderBrush}"
+                     SnapsToDevicePixels="True">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                   Focusable="False"
+                                   HorizontalScrollBarVisibility="Hidden"
+                                   VerticalScrollBarVisibility="Hidden"/>
+
+                            </Grid>
+                        </Border>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" >
+            <Setter Property="Background" Value="Bisque"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="6 3"/>
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="FontStretch" Value="Expanded"/>
+
+            <Setter Property="Width" Value="300"/>
+
+
+            <Setter Property="AllowDrop" Value="True"/>
+            <Setter Property="FontFamily" Value="Palatino linotype"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="MaxHeight" Value="40"/>
+            <Setter Property="MaxWidth" Value="300"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="txtBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="15"
+                                MaxHeight="{TemplateBinding MaxHeight}"
+                                MaxWidth="{TemplateBinding MaxWidth}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                SnapsToDevicePixels="True">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                              Focusable="False"
+                                              HorizontalScrollBarVisibility="Hidden"
+                                              VerticalScrollBarVisibility="Hidden"/>
+
+                            </Grid>
+                        </Border>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+
+
+        </Style>
+
+
+    </Window.Resources>
+
+
+    <Grid>
+       
+        <StackPanel Margin="0,30,0,0">
+            
+            <Label Content="USER REGISTRATION"
+       HorizontalContentAlignment="Center" 
+       Foreground="AntiqueWhite"
+                   FontFamily="verdana"
+                   FontSize="25"
+        Height="46"/>
+        </StackPanel>
+
+
+
+        <StackPanel  
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top" Width="584" Height="297" Margin="0,94,0,0">
+            <StackPanel Margin="0,15,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="User ID :"
+                       HorizontalAlignment="Left"
+                       Background="White"
+                       Foreground="Black"
+                   Style="{DynamicResource LabelStyle}"/>
+                <TextBox 
+                    HorizontalAlignment="Right"
+                    Margin="30,0,0,0"
+                     x:Name="userId_txtBox"
+                 Style="{DynamicResource TextBoxStyle}"
+                 TextWrapping="NoWrap" 
+                 VerticalAlignment="Top"  
+                 />
+            </StackPanel>
+            <StackPanel Margin="0,15,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Full Name :"
+                       Background="White"
+                        Foreground="Black"
+                       HorizontalAlignment="Center"
+                    Style="{DynamicResource LabelStyle}"/>
+                <TextBox HorizontalAlignment="Right"
+                     x:Name="fullname_txtBox"
+                         Margin="20,0,0,0"
+                 Tag="ID"
+                 Style="{DynamicResource TextBoxStyle}"
+                 TextWrapping="NoWrap"
+                 VerticalAlignment="Top"
+                 
+                  />
+            </StackPanel>
+            <StackPanel Margin="0,15,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Address : "
+                       HorizontalAlignment="Center"
+                    Style="{DynamicResource LabelStyle}"
+                       Background="White"
+                        Foreground="Black"/>
+                <TextBox HorizontalAlignment="Left"
+                     x:Name="address_txtBox"
+                         Margin="30,0,0,0"
+                 Style="{DynamicResource TextBoxStyle}"
+                 TextWrapping="NoWrap"
+                 VerticalAlignment="Top" 
+                 />
+            </StackPanel>
+            <StackPanel Margin="0,15,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Phone Number : "
+                       Background="White"
+                        Foreground="Black"
+                       HorizontalAlignment="Center"
+                    Style="{DynamicResource LabelStyle}"/>
+                <TextBox  
+                    Margin="20,0,0,0"
+            HorizontalAlignment="Right"
+                x:Name="phno_txtBox"
+                 Style="{DynamicResource TextBoxStyle}"
+                 TextWrapping="NoWrap"
+                 VerticalAlignment="Top"
+                 
+                 />
+            </StackPanel>
+            <StackPanel Margin="0,15,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Password : "
+                       Background="White"
+                        Foreground="Black"
+                    HorizontalAlignment="Center"
+         Style="{DynamicResource LabelStyle}"/>
+                <PasswordBox  
+                    Margin="15,0,0,0"
+                    HorizontalAlignment="Right"
+                    x:Name="password_passwordBox"
+                     Style="{StaticResource PasswordBoxStyle}"
+                />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel
+            VerticalAlignment="Top" Margin="0,391,0,0">
+
+            <Button
+                x:Name="register_btn"
+                    Style="{DynamicResource ButtonStyle}" Click="register_btn_Click" Content="REGISTER" />
+        </StackPanel>
+        <Button Content="Back" 
+                x:Name="back_btn"
+                Style="{StaticResource ButtonStyle}"
+                FontSize="20"
+                Margin="29,366,671,28" Click="back_btn_Click"/>
+    </Grid>
+</Window>

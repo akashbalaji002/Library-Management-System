@@ -1,0 +1,90 @@
+﻿<Window x:Class="LMS_Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS_Project"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+    <Window.Background>
+        <ImageBrush ImageSource="images/welcome.jpg"/>
+    </Window.Background>
+    <Window.Resources>
+        <LinearGradientBrush x:Key="LabelGradientBrush"
+                             StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#BFF098 " Offset="0" />
+            <GradientStop Color="#6FD6FF" Offset="1" />
+        </LinearGradientBrush>
+        <Style x:Key="GradientLabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="{StaticResource LabelGradientBrush}" />
+        </Style>
+
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Bisque"/>
+            <Setter Property="Foreground" Value="black" />
+            <Setter Property="Padding" Value="10,5" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="black"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="30">
+
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Salmon" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Label Content="Library Management System" 
+               VerticalAlignment="Top"
+                Style="{StaticResource GradientLabelStyle}"
+               HorizontalAlignment="Center" 
+               FontSize="40"
+               FontFamily="verdana" Margin="0,4,0,0"/>
+        <Button Name="userLogin_btn" 
+                Content="USER LOGIN" 
+                FontFamily="palatino linotype"
+                HorizontalAlignment="Left" 
+                Style="{StaticResource RoundedButtonStyle}"
+                Margin="107,104,0,0" 
+                VerticalAlignment="Top"
+                Height="62" Width="162"
+                FontSize="20" Click="userLogin_btn_Click_1"/>
+        <Image Source="images/userLoginIcon.png" Width="160" Height="168" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,54,0,0"/>
+        <Button Name="adminLogin_btn" 
+                Content="ADMIN LOGIN"
+                Style="{StaticResource RoundedButtonStyle}"
+                HorizontalAlignment="Right" 
+                Margin="0,104,107,0"
+                VerticalAlignment="Top"
+                FontFamily="palatino linotype"
+                Height="62" Width="162" 
+                FontSize="20" Click="adminLogin_btn_Click"
+                />
+        <Button Name="aexitApp_btn" 
+         Content="Exit Application"
+        Style="{StaticResource RoundedButtonStyle}"
+         HorizontalAlignment="Right" 
+         Margin="0,575,107,0"
+         VerticalAlignment="Top"
+         FontFamily="palatino linotype"
+         Height="50" Width="172" 
+         FontSize="20" Click="exitApp_btn_Click"
+         />
+
+
+    </Grid>
+</Window>

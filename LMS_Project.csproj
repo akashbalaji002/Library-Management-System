@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\addBooks.png" />
+    <None Remove="images\bookicon.png" />
+    <None Remove="images\booksAdd.jpg" />
+    <None Remove="images\lib.jpg" />
+    <None Remove="images\lib1.jpg" />
+    <None Remove="images\libb.jpg" />
+    <None Remove="images\library.jpg" />
+    <None Remove="images\LibraryBackground.jpg" />
+    <None Remove="images\lib_bg.jpg" />
+    <None Remove="images\login.jpg" />
+    <None Remove="images\usericon.png" />
+    <None Remove="images\userLoginIcon.png" />
+    <None Remove="images\welcome.jpg" />
+    <None Remove="images\welcome1.jpg" />
+    <None Remove="LibraryBackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\addBooks.png" />
+    <Resource Include="images\bookicon.png" />
+    <Resource Include="images\booksAdd.jpg" />
+    <Resource Include="images\lib.jpg" />
+    <Resource Include="images\lib1.jpg" />
+    <Resource Include="images\libb.jpg" />
+    <Resource Include="images\library.jpg" />
+    <Resource Include="images\LibraryBackground.jpg" />
+    <Resource Include="images\lib_bg.jpg" />
+    <Resource Include="images\login.jpg" />
+    <Resource Include="images\usericon.png" />
+    <Resource Include="images\userLoginIcon.png" />
+    <Resource Include="images\welcome.jpg" />
+    <Resource Include="images\welcome1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="LibraryBackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
