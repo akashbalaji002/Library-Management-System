@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -132,54 +133,80 @@ namespace LMS_Project
             }
             return false;
         }
-     
- 
-       
+
+
+        public static DateTime issueDate = DateTime.Now;
+        public static DateTime returnDate = DateTime.Now;
+   
         private void IssueBook_btn_Click(object sender, RoutedEventArgs e)
         {
-           
-           
-            string tmp = GetBookName().Trim();
-            if (bookName_ToIssueBook.Text == tmp)
-            {
-                if (isEmpty() == false)
-                {
-                    try
-                    {
-                        string query = "insert into issueBook values(@user_id,@Book_Id,@Book_Name,@issueDate,@returnDate)";
-                        SqlCommand cmd = new SqlCommand(query, con);
-                        cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("@user_id", UserIdTxtBox_toIssueBook.Text);
-                        cmd.Parameters.AddWithValue("@Book_Id", bookIdTxtBox_ToIssueBook.Text);
-                        cmd.Parameters.AddWithValue("@Book_Name", GetBookName());
-                        cmd.Parameters.AddWithValue("issueDate", issueDate_Picker.SelectedDate);
-                        cmd.Parameters.AddWithValue("@returnDate", returnDate_Picker.SelectedDate);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        IssueBook();
-                        MessageBox.Show("Book Issued","Success",MessageBoxButton.OK,MessageBoxImage.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error : "+ex.Message);
-                    }
-                    finally
-                    {
-                        con.Close(); 
-                    }
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Please provide all the details to issue a book", "failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
 
+            issueDate = issueDate_Picker.SelectedDate ?? DateTime.MinValue;
+            returnDate = returnDate_Picker.SelectedDate ?? DateTime.MinValue;
+
+
+            DateTime maxReturnDate = issueDate.AddDays(30);
+
+            if (returnDate <= issueDate)
+            {
+                MessageBox.Show("Return date must be after the issue date.");
+                returnDate_Picker.SelectedDate = issueDate.AddDays(1);
+                returnDate_Picker.Focus();
+            }
+            else if (returnDate > maxReturnDate)
+            {
+                MessageBox.Show("Return date cannot exceed 30 days from the issue date.");
+                returnDate_Picker.SelectedDate = maxReturnDate;
+                returnDate_Picker.Focus();
             }
             else
             {
-                MessageBox.Show("Book Id and Book Name is not matching", "failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                string tmp = GetBookName().Trim();
+                if (bookName_ToIssueBook.Text == tmp)
+                {
+                    if (isEmpty() == false)
+                    {
+                        try
+                        {
+                            string query = "insert into issueBook values(@user_id,@Book_Id,@Book_Name,@issueDate,@returnDate)";
+                            SqlCommand cmd = new SqlCommand(query, con);
+                            cmd.CommandType = CommandType.Text;
+                            cmd.Parameters.AddWithValue("@user_id", UserIdTxtBox_toIssueBook.Text);
+                            cmd.Parameters.AddWithValue("@Book_Id", bookIdTxtBox_ToIssueBook.Text);
+                            cmd.Parameters.AddWithValue("@Book_Name", GetBookName());
+                            cmd.Parameters.AddWithValue("issueDate", issueDate_Picker.SelectedDate);
+                            cmd.Parameters.AddWithValue("@returnDate", returnDate_Picker.SelectedDate);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+
+                            if (IssueBook())
+                                MessageBox.Show("Book Issued", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                          
+                        }
+                        catch (Exception ex)
+                        {
+                             MessageBox.Show("Error : " + ex.Message);
+                            
+                        }
+                        finally
+                        {
+                            con.Close();
+                        }
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please provide all the details to issue a book", "failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Book Id and Book Name is not matching", "failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
+            
 
         }
 
@@ -189,7 +216,7 @@ namespace LMS_Project
         }
 
 
-        private void IssueBook()
+        private bool IssueBook()
         {
             string selectQuantityQuery = "SELECT Available_Quantity FROM book_details WHERE Book_Id ="+bookIdTxtBox_ToIssueBook.Text;
 
@@ -214,19 +241,26 @@ namespace LMS_Project
                             updateQuantityCmd.Parameters.AddWithValue("@Book_Id", bookIdTxtBox_ToIssueBook.Text);
                             updateQuantityCmd.ExecuteNonQuery();
                         }
-
+                        return true;
                     }
                     else
                     {
                         MessageBox.Show("No available copies of this book.");
+                        return false;
                     }
+
                 }
             }
         }
 
+        private void IssueDate_Picker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
 
+        private void returnDate_Picker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
 
-
+        }
     }
 }

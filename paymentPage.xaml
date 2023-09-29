@@ -1,0 +1,29 @@
+﻿<Window x:Class="LMS_Project.paymentPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LMS_Project"
+        mc:Ignorable="d"
+        Title="paymentPage" Height="450" Width="800">
+    <Grid Background="Bisque">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="P A Y M E N T" FontFamily="verdana" FontSize="30"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" >
+            <Label Margin="0,30,0,0" x:Name="penAmt_lbl" Content=".." HorizontalAlignment="Center" />
+            <TextBox x:Name="payAmt_txtBox" Margin="0,25,0,0"
+                     VerticalAlignment="Center" HorizontalAlignment="Center" 
+                     Width="200"
+                     Height="30"/>
+            <Button Margin="0,30,0,0" FontSize="20" x:Name="pay_btn" Width="130" Height="30" Content="PAY" Background="DarkSalmon" Click="pay_btn_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

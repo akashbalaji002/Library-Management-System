@@ -18,7 +18,9 @@
     <None Remove="images\LibraryBackground.jpg" />
     <None Remove="images\lib_bg.jpg" />
     <None Remove="images\login.jpg" />
+    <None Remove="images\Loginn.png" />
     <None Remove="images\usericon.png" />
+    <None Remove="images\userIconn.png" />
     <None Remove="images\userLoginIcon.png" />
     <None Remove="images\welcome.jpg" />
     <None Remove="images\welcome1.jpg" />
@@ -40,7 +42,9 @@
     <Resource Include="images\LibraryBackground.jpg" />
     <Resource Include="images\lib_bg.jpg" />
     <Resource Include="images\login.jpg" />
+    <Resource Include="images\Loginn.png" />
     <Resource Include="images\usericon.png" />
+    <Resource Include="images\userIconn.png" />
     <Resource Include="images\userLoginIcon.png" />
     <Resource Include="images\welcome.jpg" />
     <Resource Include="images\welcome1.jpg" />

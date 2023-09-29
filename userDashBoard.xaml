@@ -30,7 +30,7 @@
                 <TextBox x:Name="search_bookTxtBox" Width="200" Background="BurlyWood" TextChanged="search_book_TextChanged" />
             </StackPanel>
             
-            <ScrollViewer>
+            <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
                 <DataGrid x:Name="viewBookData" Height="140" CanUserSortColumns="True"/>
             </ScrollViewer>
             <StackPanel Orientation="Horizontal">

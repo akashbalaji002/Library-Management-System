@@ -73,7 +73,6 @@ namespace LMS_Project
         public void LoadGrid()
         {
             SqlCommand cmd = new SqlCommand("select * from user_details", con);
-         
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             tab.Load(dr);

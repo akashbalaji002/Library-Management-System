@@ -26,10 +26,10 @@ namespace LMS_Project
 
         private void back_btn_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+           
             MainWindow main = new MainWindow();
             main.Show();
-            main.Close();
+            this.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

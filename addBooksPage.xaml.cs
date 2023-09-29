@@ -164,8 +164,7 @@ namespace LMS_Project
                 {
                     string query = "insert into book_details values(@Book_Id,@Book_Name,@Author_Name,@Publisher_Name,@Number_Of_Pages,@Book_Price,@Published_Date,@Available_Quantity)";
                     SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.CommandType = CommandType.Text;
-                    
+                    cmd.CommandType = CommandType.Text; 
                     cmd.Parameters.AddWithValue("@Book_Id", bookId_txtBox.Text);
                     cmd.Parameters.AddWithValue("@Book_Name", bookName_txtBox.Text);
                     cmd.Parameters.AddWithValue("@Author_Name", authorName_txtBox.Text);

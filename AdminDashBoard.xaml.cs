@@ -24,7 +24,11 @@ namespace LMS_Project
         public AdminDashBoard()
         {
             InitializeComponent();
-            InitializeComponent();
+            if (!AdminSession.IsLoggedIn)
+            {
+                MessageBox.Show("Admin login required.", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                Close();
+            }
             WindowState = WindowState.Maximized;
         }
        
@@ -34,14 +38,13 @@ namespace LMS_Project
             obj.Show();
         }
 
-     
-
         private void logout_click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult res = MessageBox.Show("Are you want to logout ?","",MessageBoxButton.YesNo,MessageBoxImage.Question);
             if(res == MessageBoxResult.Yes) 
             {
-                this.Hide();
+                AdminSession.Logout();
+                this.Close();   
                 MessageBox.Show("You have Logged out !", "Logged Out", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             

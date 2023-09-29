@@ -40,11 +40,15 @@
 
             <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center" Orientation="Horizontal">
                 <Label Content="Issuse Date :" FontFamily="palatino linotype" FontSize="15"/>
-                <DatePicker x:Name="issueDate_Picker" Width="100"/>
+                <DatePicker x:Name="issueDate_Picker" 
+                             SelectedDateChanged="IssueDate_Picker_SelectedDateChanged"
+                            Width="100"/>
             </StackPanel>
             <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center" Orientation="Horizontal" >
                 <Label FontSize="15" FontFamily="palatino linotype" Content="Return Date :" />
-                <DatePicker Name="returnDate_Picker"  Width="100"/>
+                <DatePicker Name="returnDate_Picker"
+                             SelectedDateChanged="returnDate_Picker_SelectedDateChanged"
+                            Width="100"/>
              </StackPanel>
 
 

@@ -30,12 +30,12 @@
                FontFamily="palatino linotype"
          HorizontalAlignment="Left"
          Margin="704,34,0,14" Width="38"/>
-        <StackPanel Grid.Row="1" Margin="0,0,0,152">
-
-        <DataGrid Width="800" FontFamily="palatino linotype"
+        <StackPanel Grid.Row="1" Margin="0,0,0,130">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <DataGrid Width="776" FontFamily="palatino linotype"
          Height="195" 
          x:Name="ViewBooksGrid" SelectionChanged="ViewBooksGrid_SelectionChanged" />
-
+            </ScrollViewer>
         </StackPanel>
         <Button Content="VIEW"
          FontSize="15"

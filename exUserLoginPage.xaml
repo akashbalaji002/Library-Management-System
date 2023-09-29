@@ -16,7 +16,7 @@
 
         </Style>
         <Style x:Key="PasswordBoxStyle" TargetType="{x:Type PasswordBox}" >
-            <Setter Property="Background" Value="Bisque"/>
+            <Setter Property="Background" Value="White"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Padding" Value="6 3"/>
@@ -62,10 +62,10 @@
             <Setter Property="FontFamily" Value="Palatino Linotype"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="Width" Value="100"/>
-            <Setter Property="Background" Value="Crimson"/>
+            <Setter Property="Background" Value="DarkSalmon"/>
         </Style>
         <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" >
-            <Setter Property="Background" Value="Bisque"/>
+            <Setter Property="Background" Value="White"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Padding" Value="6 3"/>
@@ -108,7 +108,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Background="Bisque">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="1.7*" />
@@ -120,9 +120,18 @@
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <Label Content="USER LOGIN" 
+                   
+                   VerticalAlignment="Center"
+                   Margin="115,20,0,0"
+                   FontFamily="verdana"
+                   FontSize="25"
+                   />
+        </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center">
-            <Image Source="images\login.jpg" HorizontalAlignment="Center" Stretch="Fill" Height="211" Width="234"/>
+            <Image Source="images\userIconn.png" HorizontalAlignment="Center" Stretch="Fill" Height="211" Width="234"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1">
@@ -145,6 +154,7 @@
         x:Name="login_btn"
         Style="{StaticResource ButtonStyle}"
         Margin=" -100,30,0,0"
+                FontSize="20"
         Content="LOGIN" Click="login_btn_Click"  />
         </StackPanel>
     </Grid>

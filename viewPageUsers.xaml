@@ -19,12 +19,14 @@
               HorizontalAlignment="Center"
               FontSize="20"
               FontFamily="palatino linotype"
-              Content="Book Details"/>
+              Content="User Details"/>
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" Height="347" Background="Bisque">
-            <DataGrid Width="800" FontFamily="palatino linotype"
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                <DataGrid Width="800" FontFamily="palatino linotype"
                Height="195" 
                x:Name="ViewUsersGrid" SelectionChanged="ViewUsersGrid_SelectionChanged" />
+            </ScrollViewer>
             <TextBox x:Name="search_UserTxtBox"
                      Margin="290,20,300,0" TextChanged="search_UserTxtBox_TextChanged"/>
             <Button 

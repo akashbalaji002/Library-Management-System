@@ -33,8 +33,8 @@ namespace LMS_Project
 
         private void adminLogin_btn_Click(object sender, RoutedEventArgs e)
         {
-            AdminDashBoard obj = new AdminDashBoard();
-            obj.Show();
+            adminLoginPage obj = new adminLoginPage();
+            obj.Show(); 
         }
 
         private void userLogin_btn_Click_1(object sender, RoutedEventArgs e)

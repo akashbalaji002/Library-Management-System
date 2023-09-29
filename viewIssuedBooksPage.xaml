@@ -17,7 +17,9 @@
             <Label  FontFamily="palatino linotype" FontSize="30" Content="Issued Book Details" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="110" Width="799"/>
         </StackPanel>
         <StackPanel Grid.Row="1" >
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
             <DataGrid x:Name="issuedBoodDetailsGridView" Height="321"/>
+            </ScrollViewer>
         </StackPanel>
         <StackPanel Grid.Row="2" Background="Bisque" Orientation="Horizontal" >
 
